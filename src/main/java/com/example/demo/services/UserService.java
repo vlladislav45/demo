@@ -5,7 +5,10 @@ import com.example.demo.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import javax.transaction.Transactional;
+
 @Service
+@Transactional
 public class UserService implements BaseService {
     private final UserRepository userRepository;
 
@@ -21,7 +24,7 @@ public class UserService implements BaseService {
     }
 
     @Override
-    public Object getById(int id) {
-        return null;
+    public User getById(int id) {
+        return this.userRepository.getById(id);
     }
 }
