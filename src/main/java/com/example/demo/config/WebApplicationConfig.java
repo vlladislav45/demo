@@ -48,8 +48,8 @@ public class WebApplicationConfig implements WebMvcConfigurer {
         return viewResolver;
     }
 
-    @Override
-    public void addViewControllers(ViewControllerRegistry registry) {
-        registry.addViewController("/register").setViewName("index");
-    }
+//    @Override
+//    public void addViewControllers(ViewControllerRegistry registry) {
+//        registry.addViewController("/register").setViewName("index");
+//    }
 }

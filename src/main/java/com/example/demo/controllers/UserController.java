@@ -29,24 +29,17 @@ public class UserController extends BaseController {
     }
 
     @GetMapping("/register")
-    public ModelAndView getIndex(ModelAndView view) {
-        return this.view("index");
+    public ModelAndView getIndex() {
+        ModelAndView test = new ModelAndView();
+        test.addObject("message", "Neymar");
+        test.setViewName("index");
+        return test;
+//        return this.view("index");
     }
 
     @GetMapping("/")
     public ModelAndView getIndex(ModelMap map) {
         map.addAttribute("message", "what");
         return this.view("index");
-    }
-
-    @PostMapping("/register")
-    public ResponseEntity<?> register(@RequestBody AuthRequestBody authRequestBody) {
-        System.out.println(authRequestBody.getUsername());
-        System.out.println(authRequestBody.getPass());
-        // Look for this body
-        if(authRequestBody.getUsername() == "a")
-            System.out.println("It's TRUE");
-
-        return ResponseEntity.ok().body(Map.of("registered", authRequestBody));
     }
 }
